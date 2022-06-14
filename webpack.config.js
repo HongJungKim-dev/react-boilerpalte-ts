@@ -10,13 +10,13 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.ts'],
+  },
   entry: path.resolve(__dirname, 'src/index.tsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-  },
-  resolve: {
-    extensions: ['.js', '.tsx', '.ts'],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -39,7 +39,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: 'ts-loader',
       },
@@ -49,6 +49,10 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]',
         },
+      },
+      {
+        test: /\.(sa|sc|c)ss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },

@@ -12,6 +12,7 @@
     "declaration": true,
     "outDir": "dist",
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node"
   }
 }
